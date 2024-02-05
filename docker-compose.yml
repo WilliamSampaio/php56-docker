@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  php-apache:
+    container_name: app-php5
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8000:80
+    volumes:
+      - ./app:/var/www/html
+      # - ./php.ini:/usr/local/etc/php/conf.d/php.ini
+    working_dir: /var/www/html
